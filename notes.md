@@ -1,2 +1,2 @@
 These are my notes for bioinformatics
-**pwd** #to find position
+**pwd** #find my position
