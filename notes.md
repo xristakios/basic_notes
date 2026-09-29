@@ -1,4 +1,2 @@
-These are my notes for bioinformatics
-
-
+These are my notes for bioinformatics<br>
 **pwd** #find my position
