@@ -1,4 +1,4 @@
-These are my notes for bioinformatics     <br>
+These are my notes for basic commands     <br>
 **pwd** #find my position <br>
 **ls**  #folder contents  <br>
 **cd file_name**  #open folder <br>
@@ -10,4 +10,16 @@ These are my notes for bioinformatics     <br>
 **cat** #show full content but not in a different window ##use it only for small files <br>
 **nano** #It lets you edit the file <br>
 #move up with **ctrl+y** or **pageup** move down with **ctrl+v** or **pagedown** and return back with **ctrl+x**<br>
+**l -lh xfile.bed** #show properties of the file ##for example size <br> 
+**wc -l xfile.bed** #show the number of lines in the file <br>
+**head -n 10** #show the first 10 lines <br>
+**grep "^>"** #count me all the lines that start with ">" <br>
+**grep -v ">"** #count me all the lines that doesn't start with ">" <br>
+**grep "^.\{11\}>" xfile.fa** #check how many lines have  character 12 as ">" <br>
+
+**sed -n '12p' out.fa | grep ">"** #go to line 12 and print it if it has '>' <br>
+
+These are my notes for bedtools <br>
+**Bedtools sorted -i xfile.bed > yfile.bed** #sorts your bed file according to the genomic coordinates<br>
+** **<br>
 
