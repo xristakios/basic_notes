@@ -16,10 +16,13 @@ These are my notes for basic commands     <br>
 **grep "^>"** #count me all the lines that start with ">" <br>
 **grep -v ">"** #count me all the lines that doesn't start with ">" <br>
 **grep "^.\{11\}>" xfile.fa** #check how many lines have  character 12 as ">" <br>
-
 **sed -n '12p' out.fa | grep ">"** #go to line 12 and print it if it has '>' <br>
+**sed -n '2p' genes_sequence.fa | grep -o 'A' | wc -l** # go to line 2 and for every A make a line and then count all the lines ## -o means make line for every A <br>
+**grep -P "^.{11}>"** check how many lines have  character 12 as ">" <br>
+##after p we can add \d for 0-9 \D for any number \w for letter/number/_ \W any character \s for space after \S no space after  **d[ATCG]{10,20}1**to find sequences form 10 to 20 nucleotides <br>
+**head -n 200 yfile.fa | grep -cP '^[ATCG]{10,100}$'**<br> # for the first 100 genes find count the ones with length from 10 to 100 ## if you want repeats included write -icP this way searches for the letters capitals or not 
 
 These are my notes for bedtools <br>
 **Bedtools sorted -i xfile.bed > yfile.bed** #sorts your bed file according to the genomic coordinates<br>
-** **<br>
+** bedtools getfasta -fi xfile.fa -bed yfile.bed -fo yfile.fa** #get all genes fasta from xfile.fa using yfile.bed and make file yfile.fa<br>
 
