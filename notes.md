@@ -21,7 +21,8 @@ These are my notes for basic commands     <br>
 **grep -cP "^.{11}>"** #check how many lines have  character 12 as ">" <br>
 ##after p we can add \d for 0-9 \D any character except number \w for letter/number/_ \W any character except number/letter \s for space after \S no space after  **[ATCG]{10,20}**to find sequences form 10 to 20 nucleotides <br>
 **head -n 200 yfile.fa | grep -cP '^[ATCG]{10,100}$'**<br> #for the first 100 genes find count the ones with length from 10 to 100 ## if you want repeats included write -icP this way searches for the letters capitals or not <br>
-**grep -iB 1 "ATGCGATCG" genes_sequence.fa** <br>
+**grep -iB 1 "ATGCGATCG" yfile.fa** <br> print the genes with this sequence 
+
 These are my notes for bedtools <br>
 **Bedtools sorted -i xfile.bed > yfile.bed** #sorts your bed file according to the genomic coordinates<br>
 ** bedtools getfasta -fi xfile.fa -bed yfile.bed -fo yfile.fa** #get all genes fasta from xfile.fa using yfile.bed and make file yfile.fa<br>
