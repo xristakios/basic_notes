@@ -20,10 +20,17 @@ These are my notes for basic commands     <br>
 **sed -n '2p' genes_sequence.fa | grep -o 'A' | wc -l** # go to line 2 and for every A make a line and then count all the lines ## -o means make line for every A <br>
 **grep -cP "^.{11}>"** #check how many lines have  character 12 as ">" <br>
 ##after p we can add \d for 0-9 \D any character except number \w for letter/number/_ \W any character except number/letter \s for space after \S no space after  **[ATCG]{10,20}**to find sequences form 10 to 20 nucleotides <br>
-**head -n 200 yfile.fa | grep -cP '^[ATCG]{10,100}$'**<br> #for the first 100 genes find count the ones with length from 10 to 100 ## if you want repeats included write -icP this way searches for the letters capitals or not <br>
-**grep -iB 1 "ATGCGATCG" yfile.fa** <br> print the genes with this sequence 
+**head -n 200 yfile.fa | grep -cP '^[ATCG]{10,100}$'** #for the first 100 genes find count the ones with length from 10 to 100 ## if you want repeats included write -icP this way searches for the letters capitals or not <br>
+**grep -iB 1 "ATGCGATCG" yfile.fa** print the genes with this sequence <br>
+**awk '!seen[$$1]++'** # its one $$$ Ι cant type 1 and this means give me only what you see first time <br>
+**awk '{print $$$$1, $$$$$2, $$$$$$3, $$$$$$$3}' OFS="\t" file.bed** <br>
+**samtools faidx genome.fa** #Create the genome index file (.fai) <br>
+**cut -f1,2 genome.fa.fai > genome.chrom.sizes** #Extract chromosome names and lengths (columns 1 and 2) <br>
+****<br>
+<br>
 
 These are my notes for bedtools <br>
 **Bedtools sorted -i xfile.bed > yfile.bed** #sorts your bed file according to the genomic coordinates<br>
 ** bedtools getfasta -fi xfile.fa -bed yfile.bed -fo yfile.fa** #get all genes fasta from xfile.fa using yfile.bed and make file yfile.fa<br>
-
+**bedtools sort -i genes.bed -g genome.chrom.sizes > genes.sorted.bed** #Sort the BED file according to the genome chromosome order
+**bedtools complement -i genes.sorted.bed -g genome.chrom.sizes > intergenic_regions.bed** #Find the regions outside gene
