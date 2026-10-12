@@ -33,4 +33,5 @@ These are my notes for bedtools <br>
 **Bedtools sorted -i xfile.bed > yfile.bed** #sorts your bed file according to the genomic coordinates<br>
 ** bedtools getfasta -fi xfile.fa -bed yfile.bed -fo yfile.fa** #get all genes fasta from xfile.fa using yfile.bed and make file yfile.fa<br>
 **bedtools sort -i genes.bed -g genome.chrom.sizes > genes.sorted.bed** #Sort the BED file according to the genome chromosome order
-**bedtools complement -i genes.sorted.bed -g genome.chrom.sizes > intergenic_regions.bed** #Find the regions outside gene
+**bedtools complement -i genes.sorted.bed -g genome.chrom.sizes > intergenic_regions.bed** #Find the regions outside gene <br>
+**bedtools merge -s -c 6 -o distinct -i Human_genes_RefSeq_sorted.bed** #Merges overlapping intervals on the same strand (-s) and outputs the strand (+/-) from column 6 (-c 6 -o distinct) <br>
