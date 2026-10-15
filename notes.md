@@ -35,3 +35,6 @@ These are my notes for bedtools <br>
 **bedtools sort -i genes.bed -g genome.chrom.sizes > genes.sorted.bed** #Sort the BED file according to the genome chromosome order
 **bedtools complement -i genes.sorted.bed -g genome.chrom.sizes > intergenic_regions.bed** #Find the regions outside gene <br>
 **bedtools merge -s -c 6 -o distinct -i Human_genes_RefSeq_sorted.bed** #Merges overlapping intervals on the same strand (-s) and outputs the strand (+/-) from column 6 (-c 6 -o distinct) <br>
+**bedtools merge -c 1 -o count -d 1000 -i test.bed | head** #Merges intervals within 1,000 bp (-d 1000) and outputs the number of merged regions (-c 1 -o count). <br>
+**bedtools flank -b 300 -i test.bed -g sacCer2.genome | head** #Creates flanking regions by extracting 300 bp from both sides (upstream and downstream, `-b 300`) for each interval in `test.bed`, bounded by chromosome sizes from the genome file (`-g`) <br>
+**bedtools flank -s -l 300 -r 0 -i test.bed -g sacCer2.genome | head** #With -s, the -l 300 parameter defines a region 300 bp upstream towards the 5' end relative to gene strand orientation (left for +, right for -), capturing the promoter while leaving downstream untouched (-r 0). <br>
